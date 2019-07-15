@@ -1,0 +1,22 @@
+.footer {
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    li {
+      margin-left: .625rem;
+    }
+  }
+
+  a:link,
+  a:hover,
+  a:active,
+  a:visited {
+    font-size: 1.25rem;
+    color: #2b2b2b;
+    padding: .375rem;
+    border: 2px solid #2b2b2b;
+    border-radius: 50%;
+  }
+}
