@@ -1,4 +1,6 @@
-.form {
+import styled from 'styled-components'
+
+export const ContactStyled = styled.div`
   width: 60%;
   margin: 2rem auto;
 
@@ -29,4 +31,4 @@
     padding: .5rem 1rem;
     cursor: pointer;
   }
-}
+`

@@ -4,6 +4,7 @@ module.exports = {
     description: `Rie McClenny is a food media producer based in Los Angeles`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-wordpress`,
