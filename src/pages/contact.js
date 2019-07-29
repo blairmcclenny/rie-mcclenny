@@ -1,104 +1,157 @@
 import React, { useState } from 'react'
 import Layout from '../components/layout/layout.js'
 import axios from 'axios'
+import { Formik, Field, Form } from 'formik'
+import * as Yup from 'yup'
 import { ContactStyled } from './contact-styles.js'
 
-const API_PATH = 'http://gatsby-contact-form.test:8888/api/contact/';
+const API_PATH = 'http://s.blairmcclenny.com/api/contact/'
+const MATCH = 'Enter letters and spaces only'
+const EMAIL = 'Enter a valid email address'
+const REQUIRED = 'This field is required'
 
-const Response = ({ header, message, reset }) => (
-  <ContactStyled>
-    <h2>{header}</h2>
-    <p>{message}</p>
-    <button onClick={() => reset()}>Send Mesage</button>
-  </ContactStyled>
+const ContactSchema = Yup.object().shape({
+  name: Yup.string()
+    .max(80)
+    .matches(/^[a-zA-Z\s]*$/, MATCH)
+    .required(REQUIRED),
+  email: Yup.string()
+    .email(EMAIL)
+    .required(REQUIRED),
+  subject: Yup.string()
+    .max(120)
+    .matches(/^[a-zA-Z\s]*$/, MATCH)
+    .required(REQUIRED),
+  message: Yup.string()
+    .max(600)
+    .required(REQUIRED),
+})
+
+const Sent = ({ setStatus }) => (
+  <>
+    <h2>Got it!</h2>
+    <p>We'll be in touch. If you'd like to send another message use the button below.</p>
+    <button onClick={() => setStatus({ sent: false, submitted: false })} type="button">Send Another One</button>
+  </>
 )
 
-const Form = ({ inputs, handleChange, handleSubmit }) => (
-  <ContactStyled>
-    <h2>Get in touch!</h2>
-    <form>
-      <div>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" value={inputs.name} onChange={(e) => handleChange(e)} />
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" value={inputs.email} onChange={(e) => handleChange(e)} />
-      </div>
-      <div>
-        <label htmlFor="subject">Subject</label>
-        <input type="text" id="subject" name="subject" value={inputs.subject} onChange={(e) => handleChange(e)} />
-      </div>
-      <div>
-        <label htmlFor="msg">Message</label>
-        <textarea id="message" name="message" maxLength="600" value={inputs.message} onChange={(e) => handleChange(e)} />
-      </div>
-      <button type="submit" onClick={(e) => handleSubmit(e)}>Submit</button>
-    </form>
-  </ContactStyled>
+const Failed = ({ setStatus }) => (
+  <>
+    <h2>Uh oh.</h2>
+    <p>Something went wrong. If you'd like to try sending another message use the button below.</p>
+    <button onClick={() => setStatus({ sent: false, submitted: false })} type="button">Try Again</button>
+  </>
 )
 
-const Contact = () => {
-  const [inputs, setInputs] = useState({ name: '', email: '', subject: '', message: '' })
-  const [sent, setSent] = useState(false)
-  const [error, setError] = useState(null)
-
-  function handleChange(e) {
-    const { name, value } = e.target
-    setInputs(inputs => ({ ...inputs, [name]: value }))
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault()
-
-    axios({
-      method: 'post',
-      url: API_PATH,
-      headers: { 'Content-Type': 'application/json' },
-      data: inputs
-    })
-    .then(res => setSent(res.data.sent))
-    .catch(err => setError(err.message))
-  }
-
-  function reset() {
-    setInputs({ name: '', email: '', subject: '', message: '' })
-    setSent(false)
-    setError(null)
-  }
-
-  function getForm() {
-    if (sent) {
+const Input = ({ type, name, id, label, maxLength, errors, touched }) => {
+  const field = () => {
+    if (type === 'textarea') {
       return (
-        <Response
-          header="Message Received!"
-          message="Click below if you'd like to send another message."
-          reset={reset}
-        />
-      )
-    } else if (error) {
-      return (
-        <Response
-          header="Oops! Something Went Wrong"
-          message="Click below to try sending your message again."
-          reset={reset}
-        />
+        <Field component='textarea' name={name} id={id} maxLength={maxLength ? maxLength : null} rows='8' />
       )
     } else {
       return (
-        <Form
-          inputs={inputs}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-        />
+        <Field type={type} name={name} id={id} maxLength={maxLength ? maxLength : null} />
       )
     }
   }
 
   return (
+    <div>
+      <label htmlFor={name}>{label}</label>
+      {field()}
+      {errors && touched && <div className='error-message'>{errors}</div>}
+    </div>
+  )
+}
+
+const ContactForm = ({ setStatus }) => {
+  return (
+    <>
+      <h2>Get in touch!</h2>
+      <Formik
+        initialValues={{ name: '', email: '', subject: '', message: '' }}
+        validationSchema={ContactSchema}
+        validateOnChange={false}
+        onSubmit={(values) => {
+          axios({
+            method: 'post',
+            url: API_PATH,
+            headers: { 'Content-Type': 'application/json' },
+            data: values
+          })
+          .then(res => setStatus({ sent: res.data.sent, submitted: true }))
+          .catch(err => setStatus({ sent: false, submitted: true }))
+        }}
+      >
+        {({ errors, touched, isSubmitting }) => (
+          <Form>
+            <Input
+              type={'text'}
+              name={'name'}
+              id={'name'}
+              label={'Name'}
+              maxLength={100}
+              errors={errors.name}
+              touched={touched.name}
+            />
+            <Input
+              type={'email'}
+              name={'email'}
+              id={'email'}
+              label={'Email'}
+              errors={errors.email}
+              touched={touched.email}
+            />
+            <Input
+              type={'text'}
+              name={'subject'}
+              id={'subject'}
+              label={'Subject'}
+              maxLength={100}
+              errors={errors.subject}
+              touched={touched.subject}
+            />
+            <Input
+              type={'textarea'}
+              name={'message'}
+              id={'message'}
+              label={'Message'}
+              maxLength={100}
+              errors={errors.message}
+              touched={touched.message}
+            />
+            <button disabled={isSubmitting} type="submit">Submit</button>
+          </Form>
+        )}
+      </Formik>
+    </>
+  )
+}
+
+const Contact = () => {
+  const [ status, setStatus ] = useState({
+    sent: false,
+    submitted: false
+  })
+
+  return (
     <Layout>
       <main>
-        {getForm()}
+        <ContactStyled>
+          {
+            !status.sent && !status.submitted
+            && <ContactForm setStatus={setStatus} />
+          }
+          {
+            status.sent && status.submitted
+            && <Sent setStatus={setStatus} />
+          }
+          {
+            !status.sent && status.submitted
+            && <Failed setStatus={setStatus} />
+          }
+        </ContactStyled>
       </main>
     </Layout>
   )
