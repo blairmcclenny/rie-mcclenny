@@ -22,7 +22,7 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    allWordpressWpWork(sort: {fields: date}) {
+    allWordpressWpWork(sort: {fields: date, order: DESC}) {
       edges {
         node {
           id
