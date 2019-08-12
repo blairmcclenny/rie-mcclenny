@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import Layout from '../components/layout/layout.js'
+import Layout from '../components/layout/layout'
 import axios from 'axios'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
-import { ContactStyled } from './contact-styles.js'
+import ContactStyled from './contact-styles'
 
 const API_PATH = ''
 const MATCH = 'Enter letters and spaces only'

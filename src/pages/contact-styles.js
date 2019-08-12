@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const error = '#d9534f'
 
-export const ContactStyled = styled.div`
+const ContactStyled = styled.div`
   width: 60%;
   margin: 2rem auto;
 
@@ -46,3 +46,5 @@ export const ContactStyled = styled.div`
     font-size: .75rem;
   }
 `
+
+export default ContactStyled
