@@ -5,7 +5,7 @@ import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 import { ContactStyled } from './contact-styles.js'
 
-const API_PATH = 'http://s.blairmcclenny.com/api/contact/'
+const API_PATH = ''
 const MATCH = 'Enter letters and spaces only'
 const EMAIL = 'Enter a valid email address'
 const REQUIRED = 'This field is required'
