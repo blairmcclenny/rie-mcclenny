@@ -37,7 +37,7 @@ function NavLink(props) {
   )
 }
 
-export default ({ data }) => {
+const Header = ({ data }) => {
   const { allWordpressSiteMetadata } = useStaticQuery(
     graphql`
       query {
@@ -68,3 +68,5 @@ export default ({ data }) => {
     </header>
   )
 }
+
+export default Header

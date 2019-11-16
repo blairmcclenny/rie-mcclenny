@@ -1,14 +1,14 @@
 import React from 'react'
-import SEO from '../seo/SEO'
-import Header from '../header/header'
-import Footer from '../footer/footer'
+import SEO from '../SEO'
+import Header from '../Header'
+import Footer from '../Footer'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import styles from './layout.module.scss'
 
 library.add(fab)
 
-export default ({ children }) => (
+const Layout = ({ children }) => (
   <div className={styles.wrapper}>
     <SEO />
     <Header />
@@ -16,3 +16,5 @@ export default ({ children }) => (
     <Footer />
   </div>
 )
+
+export default Layout

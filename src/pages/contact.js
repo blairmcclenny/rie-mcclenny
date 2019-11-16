@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Layout from '../components/layout/layout'
+import Layout from '../components/Layout'
 import axios from 'axios'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'

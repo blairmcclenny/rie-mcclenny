@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './footer.module.scss'
 
-export default () => {
+const Footer = () => {
   const networks = [
     { icon: 'instagram', link: 'https://www.instagram.com/thedessertsnob', },
     { icon: 'youtube', link: 'https://www.youtube.com/channel/UCjx1Y3YRVDTv1Q3-KsztDSA', },
@@ -25,3 +25,5 @@ export default () => {
     </footer>
   )
 }
+
+export default Footer
