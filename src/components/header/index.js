@@ -1,41 +1,37 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import styles from './header.module.scss'
+import { StyledHeader, StyledLogo, StyledNav, StyledNavLink } from './style'
 
 const sections = ['Work', /*'Instagram',*/ 'About', 'Contact']
 
-function Logo(props) {
-  return (
-    <h1 className={styles.logo}>
-      <Link to="/">
-        {
-          props.name.toUpperCase().split(' ').map((word, i) => (
-              <span key={i}>
-                {
-                  word
-                    .split('')
-                    .map((letter, i, word) => (
-                      i === word.indexOf('C') && word.join('') === 'MCCLENNY' ? letter.toLowerCase() : letter
-                    ))
-                    .join('')
-                }
-              </span>
-            ))
-        }
-      </Link>
-    </h1>
-  )
-}
+const Logo = ({ name }) => (
+  <StyledLogo>
+    <Link to="/">
+      {
+        name.toUpperCase().split(' ').map((word, i) => (
+            <span key={i}>
+              {
+                word
+                  .split('')
+                  .map((letter, i, word) => (
+                    i === word.indexOf('C') && word.join('') === 'MCCLENNY' ? letter.toLowerCase() : letter
+                  ))
+                  .join('')
+              }
+            </span>
+          ))
+      }
+    </Link>
+  </StyledLogo>
+)
 
-function NavLink(props) {
-  return (
-    <li className={styles.link}>
-      <Link to={`/${props.section.toLowerCase().split(' ').join('-')}/`}>
-        {props.section}
-      </Link>
-    </li>
-  )
-}
+const NavLink = ({ section }) => (
+  <StyledNavLink className='link'>
+    <Link to={`/${section.toLowerCase().split(' ').join('-')}/`}>
+      {section}
+    </Link>
+  </StyledNavLink>
+)
 
 const Header = ({ data }) => {
   const { allWordpressSiteMetadata } = useStaticQuery(
@@ -54,9 +50,9 @@ const Header = ({ data }) => {
   const { name } = allWordpressSiteMetadata.edges[0].node
 
   return (
-    <header className={styles.header}>
+    <StyledHeader>
       <Logo name={name} />
-      <nav className={styles.navMain}>
+      <StyledNav>
         <ul>
           {
             sections.map((section, i) => (
@@ -64,8 +60,8 @@ const Header = ({ data }) => {
             ))
           }
         </ul>
-      </nav>
-    </header>
+      </StyledNav>
+    </StyledHeader>
   )
 }
 

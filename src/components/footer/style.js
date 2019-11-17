@@ -1,4 +1,7 @@
-.footer {
+import styled from 'styled-components'
+import { colors } from '../../styles/theme'
+
+export const StyledFooter = styled.footer`
   ul {
     display: flex;
     align-items: center;
@@ -15,9 +18,8 @@
   a:visited {
     font-size: 1.25rem;
     padding: .375rem;
-    color: #2b2b2b;
-    // border: 2px solid #2b2b2b;
+    color: ${colors.text.black};
     border: 1px solid gray;
     border-radius: 50%;
   }
-}
+`
