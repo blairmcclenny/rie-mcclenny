@@ -1,7 +1,7 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import About from '../components/About'
-import { graphql } from 'gatsby'
 
 export default ({ data }) => {
   const { content, featured_media } = data.allWordpressPage.edges[0].node
