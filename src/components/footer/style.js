@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { colors } from '../../styles/theme'
 
 export const StyledFooter = styled.footer`
+  margin-bottom: 2rem;
+
   ul {
     display: flex;
     align-items: center;

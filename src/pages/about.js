@@ -1,21 +1,17 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import About from '../components/About'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import styles from './about.module.scss'
 
 export default ({ data }) => {
   const { content, featured_media } = data.allWordpressPage.edges[0].node
 
   return (
     <Layout>
-      <div className={styles.aboutGrid}>
-        <Img fluid={featured_media.localFile.childImageSharp.fluid} />
-        <div>
-          <h2>Hello!</h2>
-          <div dangerouslySetInnerHTML={{__html: content}} />
-        </div>
-      </div>
+      <About
+        content={content}
+        heroImage={featured_media.localFile.childImageSharp.fluid}
+      />
     </Layout>
   )
 }

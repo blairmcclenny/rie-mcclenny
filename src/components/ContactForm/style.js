@@ -1,10 +1,16 @@
 import styled from 'styled-components'
+import { colors, sizes } from '../../styles/theme'
 
-const error = '#d9534f'
-
-const ContactStyled = styled.div`
-  width: 60%;
+export const ContactStyled = styled.div`
   margin: 2rem auto;
+
+  @media (min-width: ${sizes.small.min}) {
+    width: 80%;
+  }
+
+  @media (min-width: ${sizes.medium.min}) {
+    width: 60%;
+  }
 
   label {
     color: gray;
@@ -20,7 +26,7 @@ const ContactStyled = styled.div`
 
     :focus {
       outline: none;
-      border-color: #2b2b2b;
+      border-color: ${colors.primary.black};
     }
   }
 
@@ -34,17 +40,15 @@ const ContactStyled = styled.div`
     margin: 1rem 0;
     border: none;
     border-radius: 4px;
-    background: #2b2b2b;
+    background: ${colors.primary.black};
     color: white;
     padding: .5rem 1rem;
     cursor: pointer;
   }
 
   .error-message {
-    color: ${error};
+    color: ${colors.text.error};
     margin-top: .375rem;
     font-size: .75rem;
   }
 `
-
-export default ContactStyled

@@ -5,7 +5,8 @@ export const colors = {
   },
   text: {
     black: '#2B2B2B',
-    white: '#FFF'
+    white: '#FFF',
+    error: '#D9534F'
   }
 }
 
