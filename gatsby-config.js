@@ -25,6 +25,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Rie McClenny`,
+        short_name: `Rie McClenny`,
+        start_url: `/`,
+        background_color: `#2b2b2b`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `src/assets/images/favicon.png`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
   ],
