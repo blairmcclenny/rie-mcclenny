@@ -1,22 +1,10 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { Link, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import styles from './work.module.scss'
+import Work from '../components/Work'
 
 export default ({ data }) => (
   <Layout>
-    <div className={styles.workGrid}>
-      {
-        data.allWordpressWpWork.edges.map(({ node }) => (
-          <div key={node.id}>
-            <Link to={`/work/${node.slug}`}>
-              <Img fluid={node.featured_media.localFile.childImageSharp.fluid} />
-            </Link>
-          </div>
-        ))
-      }
-    </div>
+    <Work work={data.allWordpressWpWork.edges} />
   </Layout>
 )
 
