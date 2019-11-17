@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { sizes } from '../../styles/theme'
 
-export const WorkGrid = styled.div`
+export const WorkGrid = styled.main`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1.25rem;
