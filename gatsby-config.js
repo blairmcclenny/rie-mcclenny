@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: "wp.tangerineandtangelo.com",
+        baseUrl: "wp.rie.blairmcclenny.com",
         protocol: "http",
         hostingWPCOM: false,
         useACF: true,
