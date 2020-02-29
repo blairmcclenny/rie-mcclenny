@@ -27,6 +27,7 @@ const SEO = ({ title, description, image, pathname, article }) => {
         return (
           <>
             <Helmet title={seo.title} titleTemplate={titleTemplate}>
+              <script data-ad-client="ca-pub-6645443580483867" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
               <meta name="description" content={seo.description} />
               <meta name="image" content={seo.image} />
               {seo.url && <meta property="og:url" content={seo.url} />}

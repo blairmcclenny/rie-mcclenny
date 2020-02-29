@@ -20,6 +20,7 @@ module.exports = {
         includedRoutes: [
           "**/group",
           "**/work",
+          "**/recipe",
           "**/pages",
           "**/media",
         ],
