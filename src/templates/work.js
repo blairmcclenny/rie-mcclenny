@@ -7,11 +7,19 @@ export default ({ data, pageContext }) => {
   const {
     title,
     path,
+    date,
+    modified,
     acf
   } = data.allWordpressWpWork.edges[0].node
 
   return (
-    <Layout title={title} path={path}>
+    <Layout
+      title={title}
+      path={path}
+      type='article'
+      publishedTime={date}
+      modifiedTime={modified}
+    >
       <main className={styles.main}>
         <h2 className={styles.hidden}>{title}</h2>
         <div
@@ -41,6 +49,8 @@ export const query = graphql`
         node {
           title
           path
+          date
+          modified
           acf {
             youtube_video_embed
           }
