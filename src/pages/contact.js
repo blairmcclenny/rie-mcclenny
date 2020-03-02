@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import ContactForm from '../components/ContactForm'
 
 export default () => (
-  <Layout title='Contact'>
+  <Layout path='/contact/' title='Contact'>
     <ContactForm />
   </Layout>
 )

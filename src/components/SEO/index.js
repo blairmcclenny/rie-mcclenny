@@ -34,6 +34,7 @@ const SEO = ({ title, description, image, path, article }) => {
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
               />
+              <link rel="canonical" href={seo.url} />
               <meta name="description" content={seo.description} />
               <meta name="image" content={seo.image} />
               {

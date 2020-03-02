@@ -5,7 +5,7 @@ import Work from '../components/Work'
 
 export default ({ data }) => {
   return (
-    <Layout title='Work'>
+    <Layout path='/work/' title='Work'>
       <Work work={data.allWordpressWpWork.edges} />
     </Layout>
   )
