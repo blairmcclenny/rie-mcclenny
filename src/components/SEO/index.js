@@ -44,11 +44,6 @@ const SEO = ({
           <>
             <Helmet title={seo.title} titleTemplate={titleTemplate}>
               <html lang="en" />
-              <script
-                data-ad-client="ca-pub-6645443580483867"
-                async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-              />
               {
                 seo.url &&
                 <link rel="canonical" href={seo.url} />
