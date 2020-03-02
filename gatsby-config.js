@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Rie McClenny`,
-    titleTemplate: "%s · The Dessert Snob",
+    title: `The Dessert Snob`,
+    titleTemplate: "Rie McClenny · %s",
     description: `Rie McClenny is a food media producer based in Los Angeles`,
     url: "https://www.riemcclenny.com",
     image: "/images/rie_og.jpg",

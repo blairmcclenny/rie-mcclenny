@@ -11,7 +11,7 @@ export default ({ data, pageContext }) => {
   } = data.allWordpressWpWork.edges[0].node
 
   return (
-    <Layout path={path}>
+    <Layout title={title} path={path}>
       <main className={styles.main}>
         <h2 className={styles.hidden}>{title}</h2>
         <div

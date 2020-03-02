@@ -7,7 +7,7 @@ export default ({ data }) => {
   const { content, featured_media } = data.allWordpressPage.edges[0].node
 
   return (
-    <Layout>
+    <Layout title='About'>
       <About
         content={content}
         heroImage={featured_media.localFile.childImageSharp.fluid}

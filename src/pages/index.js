@@ -7,7 +7,7 @@ export default ({ data }) => {
   const { fluid } = data.allWordpressPage.edges[0].node.featured_media.localFile.childImageSharp
 
   return (
-    <Layout>
+    <Layout title='The Dessert Snob'>
       <Home heroImage={fluid} />
     </Layout>
   )
