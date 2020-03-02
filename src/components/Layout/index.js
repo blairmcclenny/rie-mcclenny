@@ -9,10 +9,13 @@ import { StyledLayout } from './style'
 
 library.add(fab)
 
-const Layout = ({ children }) => (
+const Layout = ({ title, path, children }) => (
   <StyledLayout>
     <GlobalStyle />
-    <SEO />
+    <SEO
+      title={title}
+      path={path}
+    />
     <Header />
       {children}
     <Footer />

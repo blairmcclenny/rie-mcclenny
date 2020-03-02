@@ -3,11 +3,13 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Work from '../components/Work'
 
-export default ({ data }) => (
-  <Layout>
-    <Work work={data.allWordpressWpWork.edges} />
-  </Layout>
-)
+export default ({ data }) => {
+  return (
+    <Layout>
+      <Work work={data.allWordpressWpWork.edges} />
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query {

@@ -4,10 +4,14 @@ import { graphql, Link } from 'gatsby'
 import styles from './work.module.scss'
 
 export default ({ data, pageContext }) => {
-  const { title, acf } = data.allWordpressWpWork.edges[0].node
+  const {
+    title,
+    path,
+    acf
+  } = data.allWordpressWpWork.edges[0].node
 
   return (
-    <Layout>
+    <Layout path={path}>
       <main className={styles.main}>
         <h2 className={styles.hidden}>{title}</h2>
         <div
@@ -36,6 +40,7 @@ export const query = graphql`
       edges {
         node {
           title
+          path
           acf {
             youtube_video_embed
           }
