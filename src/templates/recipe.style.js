@@ -69,3 +69,16 @@ export const Ingredients = styled.div`
 export const Preparation = styled.div`
 
 `
+
+export const AdMiddleHorizontal = styled.div`
+  padding: 0;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  margin: 0;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+  display: flex;
+  justify-content: center;
+`

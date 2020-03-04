@@ -11,6 +11,7 @@ import {
   StyledMetrics,
   StyledMetricsItem,
   StyledMetricsItemHeader,
+  AdMiddleHorizontal,
   Directions,
   Ingredients,
   Preparation
@@ -124,7 +125,7 @@ export default ({ data, pageContext }) => {
               <Metrics metrics={metrics} />
             </div>
           </Hero>
-          <div>
+          <AdMiddleHorizontal>
             <ins
               className="adsbygoogle"
               style={{
@@ -135,7 +136,7 @@ export default ({ data, pageContext }) => {
               data-ad-client="ca-pub-6645443580483867"
               data-ad-slot="1455147089"
             />
-          </div>
+          </AdMiddleHorizontal>
           <Directions>
             <Ingredients>
               <h3>Ingredients</h3>
