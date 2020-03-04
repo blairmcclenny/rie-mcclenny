@@ -6,12 +6,13 @@ import {
   Main,
   Recipe,
   Hero,
+  HeroContent,
   Title,
   Description,
   StyledMetrics,
   StyledMetricsItem,
   StyledMetricsItemHeader,
-  AdMiddleHorizontal,
+  AdHorizontal,
   Directions,
   Ingredients,
   Preparation
@@ -116,27 +117,28 @@ export default ({ data, pageContext }) => {
         <Recipe>
           <Hero>
             <Img fluid={featured_media.localFile.childImageSharp.fluid} />
-            <div>
+            <HeroContent>
               <Title>{title}</Title>
               {
                 description &&
                 <Description>{description}</Description>
               }
               <Metrics metrics={metrics} />
-            </div>
+            </HeroContent>
           </Hero>
-          <AdMiddleHorizontal>
+          <AdHorizontal>
             <ins
               className="adsbygoogle"
               style={{
                 display:'block',
                 width: '728px',
-                height: '90px'
+                height: '90px',
+                background: '#eee',
               }}
               data-ad-client="ca-pub-6645443580483867"
               data-ad-slot="1455147089"
             />
-          </AdMiddleHorizontal>
+          </AdHorizontal>
           <Directions>
             <Ingredients>
               <h3>Ingredients</h3>

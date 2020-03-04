@@ -24,6 +24,10 @@ export const Hero = styled.div`
   }
 `
 
+export const HeroContent = styled.div`
+
+`
+
 export const Title = styled.h2`
 
 `
@@ -53,7 +57,7 @@ export const StyledMetricsItemHeader = styled.span`
 `
 
 export const Directions = styled.div`
-  margin: 1.875rem 0;
+  margin: 0 0 1.875rem;
 
   @media (min-width: ${sizes.medium.min}) {
     display: grid;
@@ -70,7 +74,7 @@ export const Preparation = styled.div`
 
 `
 
-export const AdMiddleHorizontal = styled.div`
+export const AdHorizontal = styled.div`
   padding: 0;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -81,4 +85,8 @@ export const AdMiddleHorizontal = styled.div`
   border-bottom: solid 1px #eee;
   display: flex;
   justify-content: center;
+`
+
+export const AdSquare = styled.div`
+
 `
