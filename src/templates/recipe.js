@@ -18,9 +18,6 @@ import {
   Preparation
 } from './recipe.style.js'
 
-// data-ad-format="auto"
-// data-full-width-responsive="true"
-
 const Metrics = ({ metrics }) => {
   const {
     prepTime,
@@ -28,12 +25,11 @@ const Metrics = ({ metrics }) => {
     serves
   } = metrics
 
-  const pluralSingularHours = (num) => num > 1 ? 'hrs' : 'hr'
-  const pluralSingularMinutes = (num) => num > 1 ? 'mins' : 'min'
+  const pluralSingular = (num) => num > 1 ? 's' : ''
 
   const displayTime = (hrs, mins) => {
-    const hours = hrs ? `${hrs} ${pluralSingularHours(hrs)} ` : ''
-    const minutes = mins ? `${mins} ${pluralSingularMinutes(mins)}` : ''
+    const hours = hrs ? `${hrs} hr${pluralSingular(hrs)} ` : ''
+    const minutes = mins ? `${mins} min${pluralSingular(mins)}` : ''
 
     return `${hours}${minutes}`
   }
@@ -43,15 +39,15 @@ const Metrics = ({ metrics }) => {
     const totalCookTime = Number(cookTime.hours) * 60 + Number(cookTime.minutes)
     const totalTime = totalPrepTime + totalCookTime
 
-    if (totalTime > 60) {
-      const hours = `${Math.trunc(totalTime / 60)} ${pluralSingularHours(Math.trunc(totalTime / 60))}`
-      const minutes = ` ${totalTime % 60} ${pluralSingularMinutes(totalTime % 60)}`
-
-      return `${hours}${minutes !== 0 ? minutes : null}`
-    } else {
+    if (totalTime >= 60) {
+      const hours = Math.trunc(totalTime / 60)
       const minutes = totalTime % 60
 
-      return `${minutes} ${pluralSingularMinutes(minutes)}`
+      return `${hours !== 0 ? `${hours} hr${pluralSingular(hours)}` : ''}${minutes !== 0 ? ` ${minutes} min${pluralSingular(minutes)}` : ''}`
+    } else {
+      const minutes = totalTime
+
+      return `${minutes} min${pluralSingular(minutes)}`
     }
   }
 
