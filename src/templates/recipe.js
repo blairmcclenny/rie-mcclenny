@@ -124,7 +124,11 @@ export default ({ data, pageContext }) => {
           <div>
             <ins
               className="adsbygoogle"
-              style={{display:'block'}}
+              style={{
+                display:'block',
+                width: '728px',
+                height: '90px'
+              }}
               data-ad-client="ca-pub-6645443580483867"
               data-ad-slot="1455147089"
               data-ad-format="auto"
