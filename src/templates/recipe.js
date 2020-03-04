@@ -16,6 +16,9 @@ import {
   Preparation
 } from './recipe.style.js'
 
+// data-ad-format="auto"
+// data-full-width-responsive="true"
+
 const Metrics = ({ metrics }) => {
   const {
     prepTime,
@@ -131,8 +134,6 @@ export default ({ data, pageContext }) => {
               }}
               data-ad-client="ca-pub-6645443580483867"
               data-ad-slot="1455147089"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
             />
           </div>
           <Directions>
