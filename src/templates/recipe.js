@@ -25,11 +25,11 @@ const Metrics = ({ metrics }) => {
     serves
   } = metrics
 
-  const pluralSingular = (num) => num > 1 ? 's' : ''
+  const isPlural = (num) => num > 1 ? 's' : ''
 
   const displayTime = (hrs, mins) => {
-    const hours = hrs ? `${hrs} hr${pluralSingular(hrs)} ` : ''
-    const minutes = mins ? `${mins} min${pluralSingular(mins)}` : ''
+    const hours = hrs ? `${hrs} hr${isPlural(hrs)} ` : ''
+    const minutes = mins ? `${mins} min${isPlural(mins)}` : ''
 
     return `${hours}${minutes}`
   }
@@ -43,11 +43,11 @@ const Metrics = ({ metrics }) => {
       const hours = Math.trunc(totalTime / 60)
       const minutes = totalTime % 60
 
-      return `${hours !== 0 ? `${hours} hr${pluralSingular(hours)}` : ''}${minutes !== 0 ? ` ${minutes} min${pluralSingular(minutes)}` : ''}`
+      return `${hours !== 0 ? `${hours} hr${isPlural(hours)}` : ''}${minutes !== 0 ? ` ${minutes} min${isPlural(minutes)}` : ''}`
     } else {
       const minutes = totalTime
 
-      return `${minutes} min${pluralSingular(minutes)}`
+      return `${minutes} min${isPlural(minutes)}`
     }
   }
 
