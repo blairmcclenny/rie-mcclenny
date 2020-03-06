@@ -12,6 +12,19 @@ export default ({ data, pageContext }) => {
     acf
   } = data.allWordpressWpWork.edges[0].node
 
+  // Next Previous Links
+  // {
+  //   pageContext.previous
+  //     ? <Link className='hidden' to={`/work/${pageContext.previous}`}>Previous</Link>
+  //     : null
+  // }
+  // {
+  //   pageContext.next
+  //     ? <Link className='hidden' to={`/work/${pageContext.next}`}>Next</Link>
+  //     : null
+  // }
+  // <Link className='hidden' to="/work">Back to Work</Link>
+
   return (
     <Layout
       title={title}
@@ -26,17 +39,6 @@ export default ({ data, pageContext }) => {
           className={`embed-responsive embed-responsive-youtube`}
           dangerouslySetInnerHTML={{__html: acf.youtube_video_embed}}
         />
-        {
-          pageContext.previous
-            ? <Link className='hidden' to={`/work/${pageContext.previous}`}>Previous</Link>
-            : null
-        }
-        {
-          pageContext.next
-            ? <Link className='hidden' to={`/work/${pageContext.next}`}>Next</Link>
-            : null
-        }
-        <Link className='hidden' to="/work">Back to Work</Link>
       </Main>
     </Layout>
   )
