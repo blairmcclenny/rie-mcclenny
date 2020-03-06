@@ -89,6 +89,9 @@ const Metrics = ({ metrics }) => {
 export default ({ data, pageContext }) => {
   const {
     title,
+    path,
+    date,
+    modified,
     featured_media,
     acf: {
       metrics,
@@ -108,7 +111,13 @@ export default ({ data, pageContext }) => {
   })
 
   return (
-    <Layout>
+    <Layout
+      title={title}
+      path={path}
+      type='article'
+      publishedTime={date}
+      modifiedTime={modified}
+    >
       <Main>
         <Recipe>
           <Hero>
@@ -173,6 +182,9 @@ export const query = graphql`
             }
           }
           title
+          path
+          date
+          modified
           acf {
             description
             metrics {
