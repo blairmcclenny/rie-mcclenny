@@ -122,7 +122,10 @@ export default ({ data, pageContext }) => {
       <Main>
         <Recipe>
           <Hero>
-            <Img fluid={featured_media.localFile.childImageSharp.fluid} />
+            <Img
+              fluid={featured_media.localFile.childImageSharp.fluid}
+              alt={featured_media.alt_text}
+            />
             <HeroContent>
               <Title>{title}</Title>
               {
@@ -174,6 +177,7 @@ export const query = graphql`
       edges {
         node {
           featured_media {
+           alt_text
  					 localFile {
               childImageSharp {
                 fluid {

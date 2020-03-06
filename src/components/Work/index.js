@@ -9,7 +9,10 @@ const Work = ({ work }) => (
       work.map(({ node }) => (
         <div key={node.id}>
           <Link to={`/work/${node.slug}`}>
-            <Img fluid={node.featured_media.localFile.childImageSharp.fluid} />
+            <Img
+              fluid={node.featured_media.localFile.childImageSharp.fluid}
+              alt={node.featured_media.alt_text}
+            />
           </Link>
         </div>
       ))

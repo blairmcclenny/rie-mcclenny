@@ -10,7 +10,7 @@ export default ({ data }) => {
     <Layout path='/about/' title='About'>
       <About
         content={content}
-        heroImage={featured_media.localFile.childImageSharp.fluid}
+        featuredMedia={featured_media}
       />
     </Layout>
   )
@@ -23,6 +23,7 @@ export const query = graphql`
         node {
           content
           featured_media {
+           alt_text
  					 localFile {
               childImageSharp {
                 fluid {

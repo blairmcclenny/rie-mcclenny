@@ -4,11 +4,11 @@ import Layout from '../components/Layout'
 import Home from '../components/Home'
 
 export default ({ data }) => {
-  const { fluid } = data.allWordpressPage.edges[0].node.featured_media.localFile.childImageSharp
+  const { featured_media } = data.allWordpressPage.edges[0].node
 
   return (
     <Layout title='The Dessert Snob'>
-      <Home heroImage={fluid} />
+      <Home featuredMedia={featured_media} />
     </Layout>
   )
 }
@@ -19,6 +19,7 @@ export const query = graphql`
       edges {
         node {
           featured_media {
+            alt_text
             localFile {
               childImageSharp {
                 fluid {
