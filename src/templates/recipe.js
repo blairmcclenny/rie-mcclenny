@@ -113,6 +113,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout
       title={title}
+      description={description}
       path={path}
       type='article'
       publishedTime={date}

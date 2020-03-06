@@ -11,6 +11,7 @@ library.add(fab)
 
 const Layout = ({
   title,
+  description,
   path,
   type,
   publishedTime,
@@ -21,6 +22,7 @@ const Layout = ({
     <GlobalStyle />
     <SEO
       title={title}
+      description={description}
       path={path}
       type={type}
       publishedTime={publishedTime}
