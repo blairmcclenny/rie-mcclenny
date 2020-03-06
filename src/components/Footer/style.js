@@ -18,10 +18,10 @@ export const StyledFooter = styled.footer`
   a:hover,
   a:active,
   a:visited {
-    font-size: 1.25rem;
-    padding: .375rem;
+    font-size: 1rem;
     color: ${colors.text.black};
-    border: 1px solid gray;
+    padding: .625rem;
+    border: 1px solid ${colors.text.black};
     border-radius: 50%;
   }
 `
