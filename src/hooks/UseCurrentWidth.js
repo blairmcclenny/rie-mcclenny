@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react';
 
-const getWidth = () => window.innerWidth
-  || document.documentElement.clientWidth
-  || document.body.clientWidth;
+const getWidth = () => {
+  if (window) {
+    return (
+      window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth
+    )
+  } else {
+    return null
+  }
+};
 
 export const useCurrentWitdh = () => {
   // save current window width in the state object
