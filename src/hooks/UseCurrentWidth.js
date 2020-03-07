@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react'
 
-const getWidth = () => {
-  if (typeof window !== undefined) {
-    return (
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth
-    )
-  } else {
-    return null
-  }
-}
+const getWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 
 export const useCurrentWitdh = () => {
-  let [width, setWidth] = useState(getWidth())
+  let [width, setWidth] = useState(0)
 
   useEffect(() => {
     let timeoutId = null
@@ -24,6 +14,7 @@ export const useCurrentWitdh = () => {
     }
 
     window.addEventListener('resize', resizeListener)
+    setWidth(getWidth())
 
     return () => {
       window.removeEventListener('resize', resizeListener)
