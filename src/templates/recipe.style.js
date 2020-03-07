@@ -93,7 +93,7 @@ export const AdHorizontal = styled.div`
     height: 90px;
   }
 
-  @media(min-width: ${sizes.medium}) {
+  @media(min-width: ${sizes.medium.min}) {
     ins {
       width: 300px;
       height: 250px;
