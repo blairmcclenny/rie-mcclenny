@@ -2,7 +2,13 @@ import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { StyledHeader, StyledLogo, StyledNav, StyledNavLink } from './style'
 
-const sections = ['Recipes', 'Work', /*'Instagram',*/ 'About', /*'Contact'*/]
+const sections = [
+  'Recipes',
+  'Work',
+  // 'Instagram',
+  'About',
+  // 'Contact',
+]
 
 const Logo = ({ name }) => (
   <StyledLogo>
