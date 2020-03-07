@@ -93,7 +93,7 @@ export const AdHorizontal = styled.div`
     height: 250px;
   }
 
-  @media (min-width: ${sizes.medium.min}) {
+  @media (min-width: ${sizes.large.min}) {
     .adsbygoogle {
       width: 728px;
       height: 90px;
