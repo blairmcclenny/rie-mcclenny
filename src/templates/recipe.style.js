@@ -89,14 +89,14 @@ export const AdHorizontal = styled.div`
   ins {
     display: block;
     background: #eee;
-    width: 728px;
-    height: 90px;
+    width: 300px;
+    height: 250px;
   }
 
   @media(min-width: ${sizes.medium.min}) {
     ins {
-      width: 300px;
-      height: 250px;
+      width: 728px;
+      height: 90px;
     }
   }
 `
