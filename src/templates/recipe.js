@@ -139,17 +139,33 @@ export default ({ data, pageContext }) => {
             </HeroContent>
           </Hero>
           <AdHorizontal>
-            <ins
-              className="adsbygoogle"
-              style={{
-                display:'block',
-                width: `${width >= 820 ? '728px' : '300px' }`,
-                height: `${width >= 820 ? '90px' : '250px' }`,
-                background: '#eee',
-              }}
-              data-ad-client="ca-pub-6645443580483867"
-              data-ad-slot="1455147089"
-            />
+            {
+              width >= 820 &&
+              <ins
+                className="adsbygoogle"
+                style={{
+                  display:'block',
+                  width: '728px',
+                  height: '90px',
+                  background: '#eee',
+                }}
+                data-ad-client="ca-pub-6645443580483867"
+                data-ad-slot="1455147089"
+              />
+            }
+            {
+              width < 820 &&
+              <ins class="adsbygoogle"
+                style={{
+                  display:'block',
+                  width: '300px',
+                  height: '250px',
+                  background: '#eee',
+                }}
+                data-ad-client="ca-pub-6645443580483867"
+                data-ad-slot="5162790942"
+              />
+            }
           </AdHorizontal>
           <Directions>
             <Ingredients>
