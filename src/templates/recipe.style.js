@@ -86,7 +86,7 @@ export const AdHorizontal = styled.div`
   display: flex;
   justify-content: center;
 
-  ins {
+  .adsbygoogle {
     display: block;
     background: #eee;
     width: 300px;
@@ -94,7 +94,7 @@ export const AdHorizontal = styled.div`
   }
 
   @media (min-width: ${sizes.medium.min}) {
-    ins {
+    .adsbygoogle {
       width: 728px;
       height: 90px;
     }
