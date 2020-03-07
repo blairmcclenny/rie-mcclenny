@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Layout from '../components/Layout'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import { useCurrentWitdh } from '../hooks/UseCurrentWidth'
+// import { useCurrentWitdh } from '../hooks/UseCurrentWidth'
 import {
   Main,
   Recipe,
@@ -111,7 +111,7 @@ export default ({ data, pageContext }) => {
     }
   })
 
-  let width = useCurrentWitdh()
+  // let width = useCurrentWitdh()
 
   return (
     <Layout
@@ -141,12 +141,6 @@ export default ({ data, pageContext }) => {
           <AdHorizontal>
             <ins
               className="adsbygoogle"
-              style={{
-                display:'block',
-                width: `${width >= 820 ? '728px' : '300px'}`,
-                height: `${width >= 820 ? '90px' : '250px'}`,
-                background: '#eee',
-              }}
               data-ad-client="ca-pub-6645443580483867"
               data-ad-slot="1455147089"
             />

@@ -85,6 +85,20 @@ export const AdHorizontal = styled.div`
   border-bottom: solid 1px #eee;
   display: flex;
   justify-content: center;
+
+  ins {
+    display: block;
+    background: #eee;
+    width: 728px;
+    height: 90px;
+  }
+
+  @media(min-width: ${sizes.medium}) {
+    ins {
+      width: 300px;
+      height: 250px;
+    }
+  }
 `
 
 export const AdSquare = styled.div`
