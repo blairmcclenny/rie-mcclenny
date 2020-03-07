@@ -13,8 +13,8 @@ export const useCurrentWitdh = () => {
       timeoutId = setTimeout(() => setWidth(getWidth()), 150)
     }
 
-    window.addEventListener('resize', resizeListener)
     setWidth(getWidth())
+    window.addEventListener('resize', resizeListener)
 
     return () => {
       window.removeEventListener('resize', resizeListener)
