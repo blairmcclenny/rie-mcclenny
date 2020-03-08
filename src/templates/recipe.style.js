@@ -24,17 +24,11 @@ export const Hero = styled.div`
   }
 `
 
-export const HeroContent = styled.div`
+export const HeroContent = styled.div``
 
-`
+export const Title = styled.h2``
 
-export const Title = styled.h2`
-
-`
-
-export const Description = styled.p`
-
-`
+export const Description = styled.div``
 
 export const StyledMetrics = styled.ul`
   display: grid;
@@ -66,13 +60,9 @@ export const Directions = styled.div`
   }
 `
 
-export const Ingredients = styled.div`
+export const Ingredients = styled.div``
 
-`
-
-export const Preparation = styled.div`
-
-`
+export const Preparation = styled.div``
 
 export const AdHorizontal = styled.div`
   padding: 0;
@@ -101,6 +91,4 @@ export const AdHorizontal = styled.div`
   }
 `
 
-export const AdSquare = styled.div`
-
-`
+export const AdSquare = styled.div``

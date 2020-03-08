@@ -133,7 +133,7 @@ export default ({ data, pageContext }) => {
               <Title>{title}</Title>
               {
                 description &&
-                <Description>{description}</Description>
+                <Description dangerouslySetInnerHTML={{__html: description}} />
               }
               <Metrics metrics={metrics} />
             </HeroContent>
