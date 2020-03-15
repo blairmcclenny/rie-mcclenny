@@ -23,7 +23,9 @@ const Metrics = ({ metrics }) => {
   const {
     prepTime,
     cookTime,
-    serves
+    serves,
+    optionalMetric01,
+    optionalMetric02
   } = metrics
 
   const isPlural = (num) => num > 1 ? 's' : ''
@@ -81,6 +83,22 @@ const Metrics = ({ metrics }) => {
         <StyledMetricsItem>
           <StyledMetricsItemHeader>Serves</StyledMetricsItemHeader>
           {serves}
+        </StyledMetricsItem>
+      }
+      {
+        optionalMetric01.header &&
+        optionalMetric01.metric &&
+        <StyledMetricsItem>
+          <StyledMetricsItemHeader>{optionalMetric01.header}</StyledMetricsItemHeader>
+          {optionalMetric01.metric}
+        </StyledMetricsItem>
+      }
+      {
+        optionalMetric02.header &&
+        optionalMetric02.metric &&
+        <StyledMetricsItem>
+          <StyledMetricsItemHeader>{optionalMetric02.header}</StyledMetricsItemHeader>
+          {optionalMetric02.metric}
         </StyledMetricsItem>
       }
     </StyledMetrics>
@@ -199,6 +217,14 @@ export const query = graphql`
                 minutes
               }
               serves
+              optionalMetric01 {
+                header
+                metric
+              }
+              optionalMetric02 {
+                header
+                metric
+              }
             }
             ingredients
             preparation
