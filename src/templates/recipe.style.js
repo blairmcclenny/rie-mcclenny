@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { sizes } from '../styles/theme'
+import { sizes, colors } from '../styles/theme'
 
 export const Main = styled.main`
-  margin: 3.75rem auto;
+  margin: 2rem auto;
 `
 
 export const Recipe = styled.article`
@@ -33,11 +33,12 @@ export const Description = styled.div``
 export const StyledMetrics = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: .25rem;
+  grid-gap: .5rem;
+  margin-top: 1.75rem;
 `
 
 export const StyledMetricsItem = styled.li`
-  background: #eee;
+  border: 1px solid ${colors.primary.black};
   padding: 1.25rem;
   font-size: .75rem;
   text-align: center;
