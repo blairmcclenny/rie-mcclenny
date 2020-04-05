@@ -3,7 +3,7 @@ module.exports = {
     title: `The Dessert Snob`,
     titleTemplate: "Rie McClenny · %s",
     description: `Rie McClenny is a food media producer based in Los Angeles`,
-    url: "https://www.riemcclenny.com",
+    url: "https://riemcclenny.com",
     image: "/images/rie_og.jpg",
   },
   plugins: [
