@@ -118,6 +118,9 @@ export default ({ data, pageContext }) => {
       ingredients,
       preparation,
       youtube_video_embed,
+    },
+    yoast_meta: {
+      yoast_wpseo_metadesc
     }
   } = data.allWordpressWpRecipe.edges[0].node
 
@@ -134,7 +137,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout
       title={title}
-      description={description}
+      description={yoast_wpseo_metadesc}
       path={path}
       type='article'
       publishedTime={date}
@@ -229,6 +232,9 @@ export const query = graphql`
             ingredients
             preparation
             youtube_video_embed
+          }
+          yoast_meta {
+            yoast_wpseo_metadesc
           }
         }
       }
